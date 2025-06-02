@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영업보상 완전정복 가이드 | 유비행정사사무소</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+       .tab-active { border-color: #3b82f6; color: #3b82f6; font-weight: 600; background-color: #eff6ff; }
+       .step-active { background-color: #3b82f6; color: white; }
+       .step-inactive { background-color: #e5e7eb; color: #4b5563; }
+       .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+       .section-fade-in { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <header class="text-center mb-16 section-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">공익사업으로 인한 영업손실,</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">정당한 권리를 되찾으세요.</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-8">
+                복잡하고 어려운 영업보상 절차, 법률 전문가가 당신의 곁에서 든든한 힘이 되어드리겠습니다.
+            </p>
+            <div class="bg-white p-6 rounded-2xl shadow-lg max-w-lg mx-auto border border-gray-200">
+                <p class="text-xl font-bold text-slate-900">유비행정사사무소</p>
+                <p class="text-lg text-gray-700 mt-2">대표 행정사 송형열 (법학석사)</p>
+                <p class="text-md text-gray-500">고려대학교 법학과 졸업</p>
+                <a href="tel:010-7610-1993" class="mt-4 inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-colors shadow-md">
+                    📞 지금 바로 상담하기: 010-7610-1993
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <nav class="sticky top-0 bg-stone-50/80 backdrop-blur-sm z-10 mb-12 border-b border-gray-200">
+                <div class="flex justify-center space-x-2 sm:space-x-4 md:space-x-6 py-3 overflow-x-auto whitespace-nowrap">
+                    <a href="#eligibility" class="nav-link text-sm md:text-base font-medium text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md">보상 대상 확인</a>
+                    <a href="#types" class="nav-link text-sm md:text-base font-medium text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md">보상 유형 비교</a>
+                    <a href="#process" class="nav-link text-sm md:text-base font-medium text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md">청구 절차</a>
+                    <a href="#documents" class="nav-link text-sm md:text-base font-medium text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md">필요 서류</a>
+                    <a href="#faq" class="nav-link text-sm md:text-base font-medium text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md">주요 분쟁</a>
+                    <a href="#contact" class="nav-link text-sm md:text-base font-medium text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md">전문가 소개</a>
+                </div>
+            </nav>
+
+            <section id="eligibility" class="mb-20 section-fade-in">
+                <h3 class="text-3xl font-bold text-center text-slate-800 mb-4">나는 영업보상 대상일까?</h3>
+                <p class="text-lg text-center text-gray-600 max-w-2xl mx-auto mb-10">
+                    영업보상을 받기 위해서는 법에서 정한 몇 가지 기본 요건을 충족해야 합니다. 아래 체크리스트를 통해 나의 상황을 간편하게 확인해보세요. (※ 본 결과는 법적 효력이 없는 참고용입니다.)
+                </p>
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-200 max-w-3xl mx-auto">
+                    <div id="checklist-form">
+                        <div class="mb-6">
+                            <p class="font-semibold text-lg mb-3 text-gray-700">1. 사업인정고시일 이전에 영업을 시작하셨나요?</p>
+                            <label class="block mb-2"><input type="radio" name="q1" value="yes" class="mr-2"> 예, 그 이전부터 계속 영업하고 있습니다.</label>
+                            <label class="block"><input type="radio" name="q1" value="no" class="mr-2"> 아니요, 그 이후에 시작했습니다.</label>
+                        </div>
+                        <div class="mb-6">
+                            <p class="font-semibold text-lg mb-3 text-gray-700">2. 적법한 장소에서 영업하고 계신가요? (무허가 건물, 불법 형질변경 토지 제외)</p>
+                            <label class="block mb-2"><input type="radio" name="q2" value="yes" class="mr-2"> 예, 적법한 장소입니다. (또는 1989.1.24 이전 무허가 건물)</label>
+                            <label class="block"><input type="radio" name="q2" value="no" class="mr-2"> 아니요, 해당되지 않습니다.</label>
+                        </div>
+                        <div class="mb-6">
+                            <p class="font-semibold text-lg mb-3 text-gray-700">3. 사업자 등록 및 필요한 허가/면허/신고를 마치셨나요?</p>
+                            <label class="block mb-2"><input type="radio" name="q3" value="yes" class="mr-2"> 예, 모든 허가를 받고 그 내용대로 영업 중입니다.</label>
+                            <label class="block"><input type="radio" name="q3" value="no" class="mr-2"> 아니요, 일부 미비하거나 허가 없는 영업입니다.</label>
+                        </div>
+                    </div>
+                    <button id="checklist-submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-blue-700 transition-colors mt-4">결과 확인하기</button>
+                    <div id="checklist-result" class="mt-6 p-4 rounded-lg text-center font-semibold text-lg hidden"></div>
+                </div>
+            </section>
+
+            <section id="types" class="mb-20 section-fade-in">
+                <h3 class="text-3xl font-bold text-center text-slate-800 mb-4">영업보상, 어떻게 나뉠까요?</h3>
+                <p class="text-lg text-center text-gray-600 max-w-2xl mx-auto mb-10">
+                    영업보상은 크게 '휴업보상'과 '폐업보상'으로 구분됩니다. 각 유형의 조건과 보상액 산정 방식을 비교해보고, 자신의 상황에 맞는 유형을 파악하는 것이 중요합니다.
+                </p>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-lg border border-gray-200 max-w-5xl mx-auto">
+                    <div class="flex border-b border-gray-200 mb-6">
+                        <button class="tab-btn tab-active flex-1 py-3 text-center transition-colors" data-tab="suspension">휴업보상</button>
+                        <button class="tab-btn flex-1 py-3 text-center text-gray-500 transition-colors" data-tab="closure">폐업보상</button>
+                    </div>
+                    <div id="tab-content">
+                        <div class="tab-pane active" data-tab-content="suspension">
+                            <h4 class="text-2xl font-bold text-slate-800 mb-3">휴업보상: 영업을 잠시 멈출 때</h4>
+                            <p class="text-gray-600 mb-4">영업장 이전 등으로 일정 기간 영업을 중단해야 할 때 받는 보상입니다.</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6">
+                                <li><strong>보상 대상:</strong> 영업장 이전, 시설물 일부 편입, 임시영업소 설치 등</li>
+                                <li><strong>휴업 기간:</strong> 원칙 4개월 이내 (단, 영업 특수성 인정 시 최장 2년) [1, 2]</li>
+                                <li><strong>산정 요소:</strong> 휴업기간 영업이익 + 고정비용 (임대료, 인건비 등) + 이전비용 + 부대비용 [1, 2]</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane hidden" data-tab-content="closure">
+                            <h4 class="text-2xl font-bold text-slate-800 mb-3">폐업보상: 영업을 영원히 그만둘 때</h4>
+                            <p class="text-gray-600 mb-4">영업 이전이 불가능하여 완전히 폐업해야 할 때 받는 보상으로, 인정 요건이 매우 엄격합니다.</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6">
+                                <li><strong>인정 요건:</strong> 장소/배후지 특수성으로 이전 불가, 허가 재취득 불가, 이전이 현저히 곤란한 경우 [1]</li>
+                                <li><strong>산정 방식:</strong> 2년간의 영업이익 + 영업용 고정자산 등 매각손실액 [3, 4]</li>
+                                <li class="text-red-600"><strong>주의:</strong> 단순히 이전이 불편하거나 비용이 많이 든다는 사유만으로는 인정받기 어렵습니다. [1]</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="chart-container relative h-96 w-full max-w-2xl mx-auto mt-8">
+                        <canvas id="compensationChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="process" class="mb-20 section-fade-in">
+                <h3 class="text-3xl font-bold text-center text-slate-800 mb-4">보상금 청구, 어떤 절차로 진행될까요?</h3>
+                 <p class="text-lg text-center text-gray-600 max-w-2xl mx-auto mb-10">
+                    영업보상 청구는 정해진 법적 절차에 따라 진행됩니다. 각 단계를 이해하고 제때 대응하는 것이 중요합니다. 아래 단계별 아이콘을 클릭하여 상세 내용을 확인하세요.
+                </p>
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex items-center justify-between relative">
+                         <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-200 transform -translate-y-1/2 -z-10"></div>
+                        <div class="step flex-1 text-center" data-step="1">
+                            <div class="step-icon step-active mx-auto w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold cursor-pointer transition-all duration-300">1</div>
+                            <p class="mt-2 font-semibold">계획 공고</p>
+                        </div>
+                        <div class="step flex-1 text-center" data-step="2">
+                            <div class="step-icon step-inactive mx-auto w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold cursor-pointer transition-all duration-300">2</div>
+                            <p class="mt-2 font-medium text-gray-500">보상 협의</p>
+                        </div>
+                        <div class="step flex-1 text-center" data-step="3">
+                            <div class="step-icon step-inactive mx-auto w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold cursor-pointer transition-all duration-300">3</div>
+                            <p class="mt-2 font-medium text-gray-500">수용 재결</p>
+                        </div>
+                        <div class="step flex-1 text-center" data-step="4">
+                            <div class="step-icon step-inactive mx-auto w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold cursor-pointer transition-all duration-300">4</div>
+                            <p class="mt-2 font-medium text-gray-500">이의 재결</p>
+                        </div>
+                        <div class="step flex-1 text-center" data-step="5">
+                           <div class="step-icon step-inactive mx-auto w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold cursor-pointer transition-all duration-300">5</div>
+                            <p class="mt-2 font-medium text-gray-500">행정 소송</p>
+                        </div>
+                    </div>
+                    <div id="step-content" class="mt-8 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 min-h-[150px]">
+                        </div>
+                </div>
+            </section>
+            
+            <section id="documents" class="mb-20 section-fade-in">
+                 <h3 class="text-3xl font-bold text-center text-slate-800 mb-10">필수 정보 확인하기</h3>
+                 <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                        <button class="accordion-button w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-semibold text-slate-800">영업보상 청구, 어떤 서류가 필요한가요?</span>
+                            <span class="accordion-icon text-2xl font-light text-blue-600 transform transition-transform">+</span>
+                        </button>
+                        <div id="faq" class="accordion-content">
+                            <div class="px-6 pb-6 text-gray-600">
+                                <p class="mb-4">정확한 보상액 산정을 위해 아래 서류들을 꼼꼼히 준비해야 합니다. 누락된 서류는 정당한 보상을 받는 데 불리하게 작용할 수 있습니다. [5]</p>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li><strong>공통 서류:</strong> 사업자등록증, 신분증, 인감증명서, 통장사본 등 [3, 6]</li>
+                                    <li><strong>영업 증빙:</strong> 영업허가(신고)증, 최근 3년간의 부가가치세/종합소득세 신고자료 [3, 6]</li>
+                                    <li><strong>매출 증빙:</strong> 신용카드/현금영수증 매출 내역, 세금계산서 발급 내역 등 [7]</li>
+                                    <li><strong>비용 증빙 (휴업 시):</strong> 임대차계약서, 인건비 지급내역, 시설 이전 비용 견적서 등 [3, 2]</li>
+                                    <li><strong>자산 증빙 (폐업 시):</strong> 고정자산 매각 손실 증명 자료 등 [3]</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                        <button class="accordion-button w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-semibold text-slate-800">자주 발생하는 분쟁 유형은 무엇인가요?</span>
+                            <span class="accordion-icon text-2xl font-light text-blue-600 transform transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-6 pb-6 text-gray-600 space-y-4">
+                                <div>
+                                    <h5 class="font-bold">1. 보상 자격 요건 분쟁</h5>
+                                    <p>무허가 건축물 영업, 사업인정고시일 이후 영업 개시 등 보상 대상 자격 자체에 대한 다툼이 많습니다. 법적 예외 조항이 존재하므로 전문가의 검토가 필수적입니다. [8, 9, 10, 1]</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold">2. 보상액 산정 분쟁</h5>
+                                    <p>산정된 보상액이 실제 손실에 비해 현저히 적다고 느끼는 경우입니다. 영업이익 자료의 해석, 이전비용의 인정 범위 등이 주요 쟁점이 됩니다. [3, 7]</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold">3. 재개발 조합 관련 분쟁</h5>
+                                    <p>재개발 조합원이 영업보상을 청구할 수 있는지에 대한 논란입니다. 최근 판례는 조합원의 보상 청구권을 인정하는 추세이나, 여전히 복잡한 법리 다툼이 필요합니다. [11]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            
+            <section id="contact" class="text-center bg-blue-50 py-16 rounded-2xl section-fade-in">
+                 <h3 class="text-3xl font-bold text-slate-800 mb-4">혼자 고민하지 마세요.</h3>
+                 <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
+                    유비행정사사무소는 의뢰인의 정당한 권리를 되찾기 위해 법률적 전문성과 실무 경험을 바탕으로 최선의 조력을 다합니다. [12]
+                </p>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-blue-600 text-lg mb-2">✔️ 심도 깊은 법률 이해</h4>
+                        <p class="text-gray-600">고려대 법학과 졸업, 법학석사 학위를 바탕으로 복잡한 보상 규정을 체계적으로 분석하고 적용합니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-blue-600 text-lg mb-2">✔️ 실무적 전문성</h4>
+                        <p class="text-gray-600">감정평가서 분석, 전문 의견서 작성 등 보상 절차의 모든 단계에서 실질적인 해결책을 제시합니다. [12]</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-blue-600 text-lg mb-2">✔️ 전략적 조력</h4>
+                        <p class="text-gray-600">초기 협상 단계부터 소송까지, 보상금 증액을 위한 최적의 전략을 수립하고 지원합니다. [13, 11, 12]</p>
+                    </div>
+                </div>
+                 <div class="mt-12">
+                    <p class="text-2xl font-bold text-slate-900">지금 바로 전문가의 도움을 받으세요.</p>
+                     <p class="text-lg text-gray-700 mt-2">유비행정사사무소 대표 행정사 송형열</p>
+                    <a href="tel:010-7610-1993" class="mt-4 inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-lg text-xl hover:bg-blue-700 transition-colors shadow-lg">
+                        📞 전화 상담: 010-7610-1993
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 text-gray-500 text-sm">
+            <p>&copy; 2024 유비행정사사무소. All Rights Reserved.</p>
+            <p class="mt-1">본 페이지의 내용은 정보 제공을 목적으로 하며, 법적 자문을 대체할 수 없습니다.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Eligibility Checklist Logic
+            const checklistSubmit = document.getElementById('checklist-submit');
+            const checklistResult = document.getElementById('checklist-result');
+            checklistSubmit.addEventListener('click', () => {
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                const q2 = document.querySelector('input[name="q2"]:checked');
+                const q3 = document.querySelector('input[name="q3"]:checked');
+
+                if (!q1 ||!q2 ||!q3) {
+                    checklistResult.textContent = '모든 항목에 답변해주세요.';
+                    checklistResult.className = 'mt-6 p-4 rounded-lg text-center font-semibold text-lg bg-yellow-100 text-yellow-800';
+                    checklistResult.style.display = 'block';
+                    return;
+                }
+
+                if (q1.value === 'yes' && q2.value === 'yes' && q3.value === 'yes') {
+                    checklistResult.textContent = '✅ 보상 대상일 가능성이 높습니다. 전문가와 상세 상담을 받아보세요.';
+                    checklistResult.className = 'mt-6 p-4 rounded-lg text-center font-semibold text-lg bg-green-100 text-green-800';
+                } else if (q3.value === 'no' && q1.value === 'yes' && q2.value === 'yes') {
+                     checklistResult.textContent = '⚠️ 일부 특례 규정에 따라 제한적인 보상이 가능할 수 있습니다. 전문가의 검토가 필수적입니다.';
+                     checklistResult.className = 'mt-6 p-4 rounded-lg text-center font-semibold text-lg bg-yellow-100 text-yellow-800';
+                } else {
+                    checklistResult.textContent = '❌ 보상 대상이 아닐 가능성이 높습니다. 하지만 예외적인 경우가 있으니 전문가와 상담해보는 것을 권장합니다.';
+                    checklistResult.className = 'mt-6 p-4 rounded-lg text-center font-semibold text-lg bg-red-100 text-red-800';
+                }
+                checklistResult.style.display = 'block';
+            });
+
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('tab-active'));
+                    button.classList.add('tab-active');
+
+                    const tabName = button.dataset.tab;
+                    tabPanes.forEach(pane => {
+                        if (pane.dataset.tabContent === tabName) {
+                            pane.classList.remove('hidden');
+                            pane.classList.add('active');
+                        } else {
+                            pane.classList.add('hidden');
+                            pane.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Chart.js visualization
+            const ctx = document.getElementById('compensationChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['영업이익', '고정비용', '이전비용', '자산손실'],
+                    datasets: [{
+                        label: '휴업보상',
+                        data: ,
+                        backgroundColor: 'rgba(59, 130, 246, 0.6)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '폐업보상',
+                        data: ,
+                        backgroundColor: 'rgba(239, 68, 68, 0.6)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '휴업보상 vs 폐업보상 산정 요소 비교 (개념적)',
+                            font: { size: 16 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label |
+| '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += '주요 산정 요소 포함';
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return value > 0? '포함' : '미포함';
+                                }
+                            },
+                             title: {
+                                display: true,
+                                text: '보상 항목'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Stepper functionality
+            const steps = document.querySelectorAll('.step');
+            const stepContentEl = document.getElementById('step-content');
+            const stepContents = {
+                1: { title: '1단계: 보상계획 공고 및 열람', text: '사업시행자가 사업개요, 보상시기, 방법 등을 공고하고 14일 이상 열람할 수 있도록 합니다. 이의가 있다면 이 단계에서 제기할 수 있습니다. [14, 15]' },
+                2: { title: '2단계: 보상협의 및 계약', text: '감정평가 금액을 기준으로 보상 협의를 진행합니다. 협의가 성립되면 계약을 체결하고, 불성립 시 다음 단계인 수용재결로 넘어갑니다. [14, 15, 16]' },
+                3: { title: '3단계: 수용재결', text: '협의 불성립 시 관할 토지수용위원회가 재결을 통해 보상금을 결정합니다. 이는 행정심판적 성격을 가집니다. [14, 15, 17]' },
+                4: { title: '4단계: 이의재결', text: '수용재결에 불복할 경우, 30일 이내에 중앙토지수용위원회에 이의를 신청하여 재검토를 요청할 수 있습니다. [17]' },
+                5: { title: '5단계: 행정소송', text: '모든 재결에 불복할 경우, 최종적으로 법원에 보상금 증액 청구 소송을 제기하여 법원의 판단을 구합니다. [17]' }
+            };
+
+            function updateStepContent(stepNum) {
+                const content = stepContents[stepNum];
+                stepContentEl.innerHTML = `
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">${content.title}</h4>
+                    <p class="text-gray-700">${content.text}</p>
+                `;
+                 steps.forEach(s => {
+                    const icon = s.querySelector('.step-icon');
+                    if (s.dataset.step === stepNum) {
+                        icon.classList.replace('step-inactive', 'step-active');
+                        icon.classList.remove('w-12', 'h-12', 'text-xl');
+                        icon.classList.add('w-16', 'h-16', 'text-2xl');
+                        s.querySelector('p').classList.replace('text-gray-500', 'text-black');
+                        s.querySelector('p').classList.replace('font-medium', 'font-semibold');
+                    } else {
+                        icon.classList.replace('step-active', 'step-inactive');
+                        icon.classList.remove('w-16', 'h-16', 'text-2xl');
+                        icon.classList.add('w-12', 'h-12', 'text-xl');
+                        s.querySelector('p').classList.replace('text-black', 'text-gray-500');
+                        s.querySelector('p').classList.replace('font-semibold', 'font-medium');
+                    }
+                });
+            }
+
+            steps.forEach(step => {
+                step.addEventListener('click', () => {
+                    updateStepContent(step.dataset.step);
+                });
+            });
+
+            updateStepContent('1');
+            
+            // Accordion functionality
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const button = item.querySelector('.accordion-button');
+                const content = item.querySelector('.accordion-content');
+                const icon = item.querySelector('.accordion-icon');
+
+                button.addEventListener('click', () => {
+                    const isExpanded = content.style.maxHeight && content.style.maxHeight!== '0px';
+                    
+                    // Close all other accordions
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem!== item) {
+                            otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
+                            otherItem.querySelector('.accordion-icon').textContent = '+';
+                            otherItem.querySelector('.accordion-icon').classList.remove('rotate-45');
+                        }
+                    });
+
+                    if (isExpanded) {
+                        content.style.maxHeight = '0px';
+                        icon.textContent = '+';
+                        icon.classList.remove('rotate-45');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.textContent = '+';
+                        icon.classList.add('rotate-45');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
